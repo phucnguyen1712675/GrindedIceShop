@@ -1,0 +1,143 @@
+﻿<mde:MaterialWindow
+    x:Class="GrindedIceShop.View.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+    Title="{Binding Title}"
+    Width="1300"
+    Height="800"
+    AutomationProperties.Name="{Binding Title, RelativeSource={RelativeSource Self}}"
+    Background="{DynamicResource MaterialDesignBackground}"
+    FontFamily="{md:MaterialDesignFont}"
+    TextElement.FontSize="14"
+    TextElement.FontWeight="Medium"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+
+    <mde:MaterialWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ResourceDictionary/MainWindowResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </mde:MaterialWindow.Resources>
+
+    <mde:MaterialWindow.TitleTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Margin="8,0,0,0"
+                    Style="{StaticResource WindowTitleTextBlockStyle}"
+                    Text="{Binding Path=Title, RelativeSource={RelativeSource AncestorType={x:Type mde:MaterialWindow}}}" />
+                <StackPanel
+                    Grid.Column="1"
+                    VerticalAlignment="Stretch"
+                    Orientation="Horizontal">
+                    <Button Style="{StaticResource WindowButtonStyle}">
+                        <md:PackIcon Kind="Github" Style="{StaticResource WindowButtonIconStyle}" />
+                    </Button>
+                    <Border
+                        Width="1"
+                        Margin="8,4,8,4"
+                        VerticalAlignment="Stretch"
+                        Background="{Binding Path=BorderForegroundBrush, RelativeSource={RelativeSource AncestorType={x:Type mde:MaterialWindow}}}"
+                        SnapsToDevicePixels="True" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </mde:MaterialWindow.TitleTemplate>
+
+    <Grid>
+        <md:DialogHost DialogTheme="Light" Identifier="{Binding Identifier}">
+            <md:DrawerHost IsLeftDrawerOpen="{Binding ElementName=appBar, Path=IsNavigationDrawerOpen}" LeftDrawerBackground="{DynamicResource MaterialDesignBackground}">
+                <md:DrawerHost.LeftDrawerContent>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Image
+                            Width="250"
+                            Margin="0,0,0,10"
+                            Source="/Resource/Image/cup.png"
+                            Stretch="Uniform" />
+                        <mde:SideNavigation
+                            Grid.Row="1"
+                            Items="{Binding NavigationItems, Mode=OneTime}"
+                            NavigationItemSelected="NavigationItemSelectedHandler"
+                            SelectedItem="{Binding SelectedNavigationItem}" />
+                    </Grid>
+                </md:DrawerHost.LeftDrawerContent>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <mde:AppBar
+                        x:Name="appBar"
+                        Title="{Binding Title}"
+                        Foreground="{DynamicResource MaterialDesignBody}"
+                        IsNavigationDrawerOpen="{Binding IsNavigationDrawerOpen}"
+                        OpaqueMode="Transparent"
+                        ShowNavigationDrawerButton="True"
+                        Type="Default">
+                        <DockPanel>
+                            <md:PopupBox
+                                DockPanel.Dock="Right"
+                                PlacementMode="BottomAndAlignRightEdges"
+                                StaysOpen="False">
+                                <StackPanel>
+                                    <StackPanel
+                                        Margin="10"
+                                        HorizontalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <TextBlock Margin="0,0,10,0" Text="Light" />
+                                        <ToggleButton Command="{Binding DarkModeCommand}" IsChecked="{Binding IsChecked}" />
+                                        <TextBlock Margin="10,0,0,0" Text="Dark" />
+                                    </StackPanel>
+                                    <Separator />
+                                </StackPanel>
+                            </md:PopupBox>
+                            <!--<mde:Autocomplete
+                                x:Name="autocomplete"
+                                Width="400"
+                                VerticalAlignment="Center"
+                                AutocompleteSource="{Binding Path=AutocompleteSource}"
+                                ItemTemplate="{StaticResource itemTemplate}"
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
+                                <mde:Autocomplete.Hint>
+                                    <StackPanel
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <md:PackIcon
+                                            Width="24"
+                                            Height="24"
+                                            VerticalAlignment="Center"
+                                            Kind="Magnify" />
+                                        <TextBlock
+                                            Margin="16,0,0,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="18"
+                                            Text="Search" />
+                                    </StackPanel>
+                                </mde:Autocomplete.Hint>
+                            </mde:Autocomplete>-->
+                        </DockPanel>
+                    </mde:AppBar>
+                    <mde:TransitionContentControl x:Name="contentControl" Grid.Row="1" />
+                </Grid>
+            </md:DrawerHost>
+        </md:DialogHost>
+    </Grid>
+</mde:MaterialWindow>
