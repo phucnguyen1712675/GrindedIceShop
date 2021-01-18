@@ -121,7 +121,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ResourceDictionary\Controls\ContentControls\HomeScreenResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceDictionary\MainWindowResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\ContentControls\HomeScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\Dialogs\Bills\BillDetailDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,11 +145,50 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Beverage.cs" />
+    <Compile Include="Models\Beverages\Beverage.cs" />
+    <Compile Include="Models\Bills\Bill.cs" />
+    <Compile Include="Models\Bills\FluentBuilder\BillBuilder.cs" />
+    <Compile Include="Models\Bills\FluentBuilder\BillBuilderDirector.cs" />
+    <Compile Include="Models\Bills\FluentBuilder\BillCashierBuilder.cs" />
+    <Compile Include="Models\Bills\FluentBuilder\BillCustomerBuilder.cs" />
+    <Compile Include="Models\Bills\FluentBuilder\BillDateBuilder.cs" />
+    <Compile Include="Models\Bills\FluentBuilder\BillReceivedAmountBuilder.cs" />
+    <Compile Include="Models\DataProvider\Bills\BillDataProvider.cs" />
+    <Compile Include="Models\DataProvider\Customers\CustomerDataProvider.cs" />
+    <Compile Include="Models\DataProvider\Staffs\StaffDataProvider.cs" />
+    <Compile Include="Models\Data\ISingletonContainer.cs" />
+    <Compile Include="Models\Data\ThreadSafeSingleton\CustomerDataContainer.cs" />
+    <Compile Include="Models\Data\ThreadSafeSingleton\StaffDataContainer.cs" />
+    <Compile Include="Util\Enumeration.cs" />
+    <Compile Include="Models\Commands\IMyCommand.cs" />
+    <Compile Include="Models\Commands\MenuItem\MenuItemCommand.cs" />
+    <Compile Include="Models\Commands\ModifyPrice.cs" />
+    <Compile Include="Models\Commands\PriceAction.cs" />
+    <Compile Include="Models\Customers\FacetedBuilder\CustomerAccountBuilder.cs" />
+    <Compile Include="Models\Customers\FacetedBuilder\CustomerAddressBuilder.cs" />
+    <Compile Include="Models\Customers\FacetedBuilder\CustomerBuilderFacade.cs" />
+    <Compile Include="Models\Customers\FacetedBuilder\CustomerInfoBuilder.cs" />
+    <Compile Include="Models\Customers\Customer.cs" />
+    <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\FullTimeStaffFactory.cs" />
+    <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\PartTimeStaffFactory.cs" />
+    <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\StaffFactory.cs" />
+    <Compile Include="Models\Staffs\StaffType.cs" />
+    <Compile Include="Models\Staffs\FullTimeStaff.cs" />
+    <Compile Include="Models\Staffs\PartTimeStaff.cs" />
+    <Compile Include="Models\Staffs\Staff.cs" />
+    <Compile Include="Models\Staffs\StaffBase.cs" />
+    <Compile Include="ViewModel\Controls\ContentControls\HomeScreenViewModel.cs" />
+    <Compile Include="ViewModel\Controls\Dialogs\Bills\BillDetailViewModel.cs" />
     <Compile Include="ViewModel\Controls\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\Controls\ContentControls\HomeScreen.xaml.cs">
+      <DependentUpon>HomeScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Dialogs\Bills\BillDetailDialog.xaml.cs">
+      <DependentUpon>BillDetailDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -172,11 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converter\" />
-    <Folder Include="Util\" />
-    <Folder Include="ViewModel\Controls\ContentControls\" />
-    <Folder Include="ViewModel\Controls\Dialogs\" />
-    <Folder Include="View\Controls\ContentControls\" />
-    <Folder Include="View\Controls\Dialogs\" />
+    <Folder Include="ResourceDictionary\Controls\Dialogs\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icon\cup.ico" />
