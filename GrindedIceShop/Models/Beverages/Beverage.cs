@@ -23,8 +23,8 @@ namespace GrindedIceShop.Models.Beverages
         public override string Prepare()
         {
             string result;
-            result = Name+ " ";
-            result += "("+ BeverageType.Prepare(Size) + ") ";
+            result = Name + " ";
+            result += "(" + BeverageType.Prepare(Size) + ") ";
             return result;
         }
 

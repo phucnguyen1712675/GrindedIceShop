@@ -39,6 +39,7 @@
                             <Button
                                 Background="{DynamicResource PrimaryHueMidBrush}"
                                 Command="{Binding DataContext.NotifyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                CommandParameter="{Binding BillId}"
                                 Content="{md:PackIcon Kind=BellRing,
                                                       Size=20}"
                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
@@ -52,6 +53,7 @@
                                 ToolTip="Thêm chi phí tại các địa điểm " />-->
                             <Button
                                 Command="{Binding DataContext.CheckoutCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                CommandParameter="{Binding BillId}"
                                 Content="{md:PackIcon Kind=CartCheck,
                                                       Size=20}"
                                 ToolTip="Checkout">
