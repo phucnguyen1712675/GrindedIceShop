@@ -136,8 +136,20 @@
                         </DockPanel>
                     </mde:AppBar>
                     <mde:TransitionContentControl x:Name="contentControl" Grid.Row="1" />
+
                 </Grid>
             </md:DrawerHost>
         </md:DialogHost>
+        <Button
+            Name="CreateOrderButton"
+            Margin="20"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Panel.ZIndex="1000"
+            Click="CreateOrderButton_Click"
+            Content="{md:PackIcon Kind=Plus,
+                                  Size=40}"
+            Style="{StaticResource MaterialDesignIconButton}"
+            ToolTip="Create Order" />
     </Grid>
 </mde:MaterialWindow>
