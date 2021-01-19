@@ -2,10 +2,7 @@
 {
     public class CustomerAccountBuilder : CustomerBuilderFacade
     {
-        public CustomerAccountBuilder(Customer customer)
-        {
-            Customer = customer;
-        }
+        public CustomerAccountBuilder(Customer customer) => Customer = customer;
 
         public CustomerAccountBuilder WithEmail(string email)
         {

@@ -1,5 +1,6 @@
 ﻿using GrindedIceShop.Models.Staffs;
 using System.Collections.Generic;
+using GrindedIceShop.Models.Staffs.FactoryMethodRefactoringTechnique;
 
 namespace GrindedIceShop.Models.DataProvider.Staffs
 {
@@ -8,15 +9,15 @@ namespace GrindedIceShop.Models.DataProvider.Staffs
         public static List<StaffBase> GetData() =>
             new List<StaffBase>
             {
-                Staff
+                StaffFactory
                 .InitializeFactories()
-                .ExecuteCreateStaff(StaffType.PartTime, "Ngô Nha Trang", 3000000m),
-                Staff
+                .ExecuteCreateStaff(StaffTypes.PartTime, "Ngô Nha Trang", 3000000m),
+                StaffFactory
                 .InitializeFactories()
-                .ExecuteCreateStaff(StaffType.PartTime, "Võ Thiện Tín", 2500000m),
-                Staff
+                .ExecuteCreateStaff(StaffTypes.PartTime, "Võ Thiện Tín", 2500000m),
+                StaffFactory
                 .InitializeFactories()
-                .ExecuteCreateStaff(StaffType.FullTime, "Nguyễn Thành Vĩnh Phúc", 7000000m),
+                .ExecuteCreateStaff(StaffTypes.FullTime, "Nguyễn Thành Vĩnh Phúc", 7000000m)
             };
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace GrindedIceShop.Models.Data.ThreadSafeSingleton
 {
-    public sealed class StaffDataContainer : ISingletonContainer
+    public sealed class StaffDataContainer
     {
         private readonly Dictionary<int, StaffBase> _staffs = new Dictionary<int, StaffBase>();
 
@@ -17,8 +17,10 @@ namespace GrindedIceShop.Models.Data.ThreadSafeSingleton
             staffs.ForEach(staff => _staffs.Add(staff.StaffId, staff));
         }
 
-        public dynamic GetById(int id) => _staffs[id];
+        public StaffBase GetById(int id) => _staffs[id];
 
         public static StaffDataContainer Instance => instance.Value;
+
+        public IEnumerable<StaffBase> GetAllStaffs() => _staffs.Values;
     }
 }

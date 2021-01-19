@@ -6,7 +6,7 @@ namespace GrindedIceShop.Models.Bills.FluentBuilder
     {
         public T AtDate(DateTime date)
         {
-            bill.Date = date;
+            Bill.Date = date;
             return (T)this;
         }
     }

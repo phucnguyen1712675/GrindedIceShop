@@ -13,5 +13,14 @@ namespace GrindedIceShop.Models.Staffs
         public override string ToString() => $"Name: {Name}, Salary: {Salary}";
 
         public abstract string Attendance(DateTime presenceTime);
+
+        public StaffBase ShallowCopy() => (StaffBase)this.MemberwiseClone();
+
+        public StaffBase DeepCopy()
+        {
+            var clone = (StaffBase)this.MemberwiseClone();
+            clone.Name = string.Copy(Name);
+            return clone;
+        }
     }
 }

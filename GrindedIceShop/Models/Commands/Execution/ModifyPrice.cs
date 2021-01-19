@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace GrindedIceShop.Models.Commands.MenuItem
+namespace GrindedIceShop.Models.Commands.Execution
 {
     public class ModifyPrice
     {
