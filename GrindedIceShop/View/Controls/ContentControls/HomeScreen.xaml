@@ -37,12 +37,7 @@
                 VerticalAlignment="Center"
                 ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
                 ItemTemplate="{StaticResource BillItemTemplate}"
-                ItemsSource="{Binding Source={StaticResource SortedBillSource}}">
-                <!--<i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseLeftButtonUp">
-                    <i:InvokeCommandAction Command="{Binding SelecteBillCommand}" CommandParameter="{Binding ElementName=BillsListView, Path=SelectedItem}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>-->
+                ItemsSource="{Binding Bills.Values}">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
@@ -61,7 +56,6 @@
                     Content="{md:PackIcon Kind=TextboxPlus,
                                           Size=20}"
                     ToolTip="Thêm hóa đơn mới">
-                    <!--  mix up the colours by bringing in a named palette (see merged dictionaries at top)  -->
                     <Button.Background>
                         <SolidColorBrush Color="{StaticResource GreenPrimary500}" />
                     </Button.Background>
