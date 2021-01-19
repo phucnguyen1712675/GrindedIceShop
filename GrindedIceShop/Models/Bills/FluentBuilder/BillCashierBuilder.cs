@@ -6,7 +6,7 @@ namespace GrindedIceShop.Models.Bills.FluentBuilder
     {
         public T ByCashier(int staffId)
         {
-            bill.Cashier = StaffDataContainer.Instance.GetById(staffId);
+            Bill.Cashier = StaffDataContainer.Instance.GetById(staffId);
             return (T)this;
         }
     }

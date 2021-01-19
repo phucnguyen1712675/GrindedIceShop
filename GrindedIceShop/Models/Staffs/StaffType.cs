@@ -10,7 +10,7 @@ namespace GrindedIceShop.Models.Staffs
         public static readonly StaffType FullTime
            = new FullTimeType();
 
-        protected StaffType(int id, string name) : base(id, name) { }
+        private StaffType(int id, string name) : base(id, name) { }
 
         public abstract decimal BonusSize { get; }
 

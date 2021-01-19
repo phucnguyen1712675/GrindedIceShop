@@ -1,6 +1,6 @@
 ﻿namespace GrindedIceShop.Models.Bills.FluentBuilder
 {
-    public class BillBuilderDirector : BillCustomerBuilder<BillBuilderDirector>
+    public class BillBuilderDirector : BillStatusBuilder<BillBuilderDirector>
     {
         public static BillBuilderDirector NewBill => new BillBuilderDirector();
     }

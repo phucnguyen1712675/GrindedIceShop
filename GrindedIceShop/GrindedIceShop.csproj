@@ -125,6 +125,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceDictionary\Controls\Dialogs\BillDetailResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceDictionary\MainWindowResourceDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +141,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Controls\Dialogs\MessageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\Dialogs\OkeCancelDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,6 +157,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converter\DecimalToCurrencyConverter.cs" />
+    <Compile Include="Domain\NotEmptyValidationRule.cs" />
     <Compile Include="Models\Beverages\Beverage.cs" />
     <Compile Include="Models\Bills\Bill.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillBuilder.cs" />
@@ -152,18 +166,30 @@
     <Compile Include="Models\Bills\FluentBuilder\BillCashierBuilder.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillCustomerBuilder.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillDateBuilder.cs" />
+    <Compile Include="Models\Bills\FluentBuilder\BillPaymentBuilder.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillReceivedAmountBuilder.cs" />
+    <Compile Include="Models\Bills\FluentBuilder\BillStatusBuilder.cs" />
+    <Compile Include="Models\Bills\Strategy\BillStatus.cs" />
+    <Compile Include="Models\Commands\Actions\PointAction.cs" />
+    <Compile Include="Models\Commands\Command\CustomerCommand.cs" />
     <Compile Include="Models\DataProvider\Bills\BillDataProvider.cs" />
     <Compile Include="Models\DataProvider\Customers\CustomerDataProvider.cs" />
     <Compile Include="Models\DataProvider\Staffs\StaffDataProvider.cs" />
     <Compile Include="Models\Data\ISingletonContainer.cs" />
+    <Compile Include="Models\Data\ThreadSafeSingleton\BillDataContainer.cs" />
     <Compile Include="Models\Data\ThreadSafeSingleton\CustomerDataContainer.cs" />
     <Compile Include="Models\Data\ThreadSafeSingleton\StaffDataContainer.cs" />
+    <Compile Include="Models\Payments\Factory\PaymentFactory.cs" />
+    <Compile Include="Models\Payments\IPayment.cs" />
+    <Compile Include="Models\Payments\Strategy\Cash.cs" />
+    <Compile Include="Models\Payments\Strategy\Momo.cs" />
+    <Compile Include="Models\Payments\Strategy\ZaloPay.cs" />
+    <Compile Include="Models\Staffs\StaffTypes.cs" />
     <Compile Include="Util\Enumeration.cs" />
     <Compile Include="Models\Commands\IMyCommand.cs" />
-    <Compile Include="Models\Commands\MenuItem\MenuItemCommand.cs" />
-    <Compile Include="Models\Commands\ModifyPrice.cs" />
-    <Compile Include="Models\Commands\PriceAction.cs" />
+    <Compile Include="Models\Commands\Command\MenuItemCommand.cs" />
+    <Compile Include="Models\Commands\Execution\ModifyPrice.cs" />
+    <Compile Include="Models\Commands\Actions\PriceAction.cs" />
     <Compile Include="Models\Customers\FacetedBuilder\CustomerAccountBuilder.cs" />
     <Compile Include="Models\Customers\FacetedBuilder\CustomerAddressBuilder.cs" />
     <Compile Include="Models\Customers\FacetedBuilder\CustomerBuilderFacade.cs" />
@@ -171,15 +197,20 @@
     <Compile Include="Models\Customers\Customer.cs" />
     <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\FullTimeStaffFactory.cs" />
     <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\PartTimeStaffFactory.cs" />
-    <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\StaffFactory.cs" />
+    <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\IStaffFactory.cs" />
     <Compile Include="Models\Staffs\StaffType.cs" />
     <Compile Include="Models\Staffs\FullTimeStaff.cs" />
     <Compile Include="Models\Staffs\PartTimeStaff.cs" />
-    <Compile Include="Models\Staffs\Staff.cs" />
+    <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\StaffFactory.cs" />
     <Compile Include="Models\Staffs\StaffBase.cs" />
+    <Compile Include="Util\Extensions.cs" />
+    <Compile Include="Util\ListOfTypes.cs" />
     <Compile Include="ViewModel\Controls\ContentControls\HomeScreenViewModel.cs" />
     <Compile Include="ViewModel\Controls\Dialogs\Bills\BillDetailViewModel.cs" />
+    <Compile Include="ViewModel\Controls\Dialogs\MessageViewModel.cs" />
+    <Compile Include="ViewModel\Controls\Dialogs\OkeCancelViewModel.cs" />
     <Compile Include="ViewModel\Controls\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\IDataVisitor.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -188,6 +219,12 @@
     </Compile>
     <Compile Include="View\Controls\Dialogs\Bills\BillDetailDialog.xaml.cs">
       <DependentUpon>BillDetailDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Dialogs\MessageDialog.xaml.cs">
+      <DependentUpon>MessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Dialogs\OkeCancelDialog.xaml.cs">
+      <DependentUpon>OkeCancelDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -222,8 +259,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Converter\" />
-    <Folder Include="ResourceDictionary\Controls\Dialogs\" />
+    <Folder Include="Models\Commands\MenuItem\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icon\cup.ico" />
