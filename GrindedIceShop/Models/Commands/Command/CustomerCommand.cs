@@ -20,7 +20,7 @@ namespace GrindedIceShop.Models.Commands.Command
 
         public void ExecuteAction()
         {
-            if (_pointAction == PointAction.Increase)
+            if (Equals(_pointAction, PointAction.Increase))
             {
                 _customer.IncreasePoint(_amount);
                 IsCommandExecuted = true;
@@ -36,7 +36,7 @@ namespace GrindedIceShop.Models.Commands.Command
             if (!IsCommandExecuted)
                 return;
 
-            if (_pointAction == PointAction.Increase)
+            if (Equals(_pointAction, PointAction.Increase))
             {
                 _customer.DecreasePoint(_amount);
             }

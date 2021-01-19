@@ -1,11 +1,12 @@
-﻿using GrindedIceShop.Models.Beverages;
+﻿using GrindedIceShop.Models.Bases;
+using GrindedIceShop.Models.Beverages;
 using GrindedIceShop.Models.Commands.Actions;
 
 namespace GrindedIceShop.Models.Commands.Command
 {
     public class MenuItemCommand : IMyCommand
     {
-        private readonly Beverage _beverage;
+        private readonly MenuItem _menuItem;
         private readonly PriceAction _priceAction;
         private readonly decimal _amount;
 
@@ -13,21 +14,21 @@ namespace GrindedIceShop.Models.Commands.Command
 
         public MenuItemCommand(Beverage beverage, PriceAction priceAction, decimal amount)
         {
-            _beverage = beverage;
+            _menuItem = beverage;
             _priceAction = priceAction;
             _amount = amount;
         }
 
         public void ExecuteAction()
         {
-            if (_priceAction == PriceAction.Increase)
+            if (Equals(_priceAction, PriceAction.Increase))
             {
-                _beverage.IncreasePrice(_amount);
+                _menuItem.IncreasePrice(_amount);
                 IsCommandExecuted = true;
             }
             else //if (_priceAction == PriceAction.Decrease)
             {
-                _beverage.DecreasePrice(_amount);
+                _menuItem.DecreasePrice(_amount);
             }
         }
 
@@ -36,13 +37,13 @@ namespace GrindedIceShop.Models.Commands.Command
             if (!IsCommandExecuted)
                 return;
 
-            if (_priceAction == PriceAction.Increase)
+            if (Equals(_priceAction, PriceAction.Increase))
             {
-                _beverage.DecreasePrice(_amount);
+                _menuItem.DecreasePrice(_amount);
             }
             else
             {
-                _beverage.IncreasePrice(_amount);
+                _menuItem.IncreasePrice(_amount);
             }
         }
     }
