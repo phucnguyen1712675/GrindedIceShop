@@ -14,12 +14,13 @@ namespace GrindedIceShop.Models.Staffs
 
         public abstract string Attendance(DateTime presenceTime);
 
-        //TODO
-        public StaffBase(string test)
+        public StaffBase ShallowCopy() => (StaffBase)this.MemberwiseClone();
+
+        public StaffBase DeepCopy()
         {
-            StaffId = 1;
-            Name = "Johnny Deep";
-            Salary = 1000000;
+            var clone = (StaffBase)this.MemberwiseClone();
+            clone.Name = string.Copy(Name);
+            return clone;
         }
     }
 }

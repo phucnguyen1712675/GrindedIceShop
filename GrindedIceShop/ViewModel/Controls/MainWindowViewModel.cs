@@ -1,6 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using GrindedIceShop.ViewModel.Controls.ContentControls;
 using MaterialDesignExtensions.Model;
-using MaterialDesignExtensions.Themes;
 using MaterialDesignThemes.Wpf;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,8 +10,8 @@ namespace GrindedIceShop.ViewModel.Controls
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private bool _canExecuteMyCommand;
-        public static MainWindowViewModel Instance;
+        private readonly bool _canExecuteMyCommand;
+
         public string Title { get; }
         public string Identifier { get; }
         public bool IsNavigationDrawerOpen { get; set; }
@@ -20,7 +20,7 @@ namespace GrindedIceShop.ViewModel.Controls
         public bool IsChecked { get; set; }
         public ICommand DarkModeCommand { get; }
 
-
+        public static MainWindowViewModel Instance;
 
         public MainWindowViewModel()
         {
@@ -33,13 +33,13 @@ namespace GrindedIceShop.ViewModel.Controls
             this.IsChecked = bool.Parse(value);
             ModifyTheme(this.IsChecked);
             this.DarkModeCommand = new RelayCommand(ExecuteDarkModeModify, () => this._canExecuteMyCommand);
-            /*NavigationItems = new List<INavigationItem>()
+            NavigationItems = new List<INavigationItem>()
             {
                 new FirstLevelNavigationItem() { Label = "Trang chủ", Icon = PackIconKind.Home, NavigationItemSelectedCallback = _ => new HomeScreenViewModel(), IsSelected = true },
-                new FirstLevelNavigationItem() { Label = "Thống kê", Icon = PackIconKind.CashUsd, NavigationItemSelectedCallback = _ => new StatisticsViewModel()},
-                new FirstLevelNavigationItem() { Label = "Thêm đơn hàng", Icon = PackIconKind.Cart, NavigationItemSelectedCallback = _ => CreateOrderScreenViewModel.Instance }
+                //new FirstLevelNavigationItem() { Label = "Thống kê", Icon = PackIconKind.CashUsd, NavigationItemSelectedCallback = _ => new StatisticsViewModel()},
+                //new FirstLevelNavigationItem() { Label = "Thêm đơn hàng", Icon = PackIconKind.Cart, NavigationItemSelectedCallback = _ => CreateOrderScreenViewModel.Instance }
             };
-            SelectedNavigationItem = NavigationItems[0];*/
+            SelectedNavigationItem = NavigationItems[0];
         }
 
 

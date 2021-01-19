@@ -1,6 +1,7 @@
 ﻿using GrindedIceShop.Models.Beverages;
+using GrindedIceShop.Models.Commands.Actions;
 
-namespace GrindedIceShop.Models.Commands.MenuItem
+namespace GrindedIceShop.Models.Commands.Command
 {
     public class MenuItemCommand : IMyCommand
     {
@@ -24,7 +25,7 @@ namespace GrindedIceShop.Models.Commands.MenuItem
                 _beverage.IncreasePrice(_amount);
                 IsCommandExecuted = true;
             }
-            else if (_priceAction == PriceAction.Decrease)
+            else //if (_priceAction == PriceAction.Decrease)
             {
                 _beverage.DecreasePrice(_amount);
             }

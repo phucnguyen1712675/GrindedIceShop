@@ -4,7 +4,7 @@
     {
         public T Receive(decimal amount)
         {
-            bill.ReceivedAmount = amount;
+            Bill.ReceivedAmount = amount;
             return (T)this;
         }
     }

@@ -1,9 +1,108 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes">
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase">
+
+    <DataTemplate x:Key="BillItemTemplate">
+        <md:Card
+            Width="220"
+            Height="320"
+            Margin="5,0"
+            md:ShadowAssist.ShadowDepth="Depth0"
+            Background="{DynamicResource MaterialDesignBackground}"
+            BorderThickness="0"
+            UniformCornerRadius="25">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <md:ColorZone VerticalAlignment="Stretch" Mode="SecondaryMid">
+                        <md:PackIcon
+                            Width="128"
+                            Height="128"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="TextBox" />
+                    </md:ColorZone>
+                    <md:PopupBox
+                        Width="35"
+                        Height="35"
+                        Margin="0,0,10,-15"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
+                        <StackPanel>
+                            <Button
+                                Background="{DynamicResource PrimaryHueMidBrush}"
+                                Command="{Binding DataContext.NotifyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                Content="{md:PackIcon Kind=BellRing,
+                                                      Size=20}"
+                                Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                                ToolTip="Notify customer" />
+                            <!--<Button
+                                Background="{DynamicResource SecondaryHueMidBrush}"
+                                Command="{Binding DataContext.AddNewBillCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                Content="{md:PackIcon Kind=MapMarker,
+                                                      Size=20}"
+                                Foreground="{DynamicResource SecondaryHueMidForegroundBrush}"
+                                ToolTip="Thêm chi phí tại các địa điểm " />-->
+                            <Button
+                                Command="{Binding DataContext.CheckoutCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                Content="{md:PackIcon Kind=CartCheck,
+                                                      Size=20}"
+                                ToolTip="Checkout">
+                                <!--  mix up the colours by bringing in a named palette (see merged dictionaries at top)  -->
+                                <Button.Background>
+                                    <SolidColorBrush Color="{StaticResource GreenPrimary500}" />
+                                </Button.Background>
+                                <Button.Foreground>
+                                    <SolidColorBrush Color="{StaticResource GreenPrimary500Foreground}" />
+                                </Button.Foreground>
+                            </Button>
+                        </StackPanel>
+                    </md:PopupBox>
+                </Grid>
+                <StackPanel
+                    Grid.Row="1"
+                    Margin="25,0,0,0"
+                    VerticalAlignment="Center">
+                    <StackPanel Margin="0,5" Orientation="Horizontal">
+                        <TextBlock
+                            Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                            Text="Bill ID: "
+                            TextTrimming="CharacterEllipsis" />
+                        <TextBlock
+                            Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                            Text="{Binding BillId}"
+                            TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                    <TextBlock Margin="0,5" Text="{Binding Status}" />
+                    <TextBlock Margin="0,5" Text="{Binding Customer.Name}" />
+                </StackPanel>
+            </Grid>
+        </md:Card>
+    </DataTemplate>
+
+    <Style x:Key="ListViewItemContainerStyle" TargetType="{x:Type ListViewItem}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <CollectionViewSource x:Key="SortedBillSource" Source="{Binding Bills}">
+        <CollectionViewSource.SortDescriptions>
+            <scm:SortDescription PropertyName="Date" />
+        </CollectionViewSource.SortDescriptions>
+    </CollectionViewSource>
+
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+        <!--  throw in some extra colour for our floating action button  -->
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Green.Named.Primary.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

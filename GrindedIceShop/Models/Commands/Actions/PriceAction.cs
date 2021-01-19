@@ -1,6 +1,6 @@
 ﻿using GrindedIceShop.Utils;
 
-namespace GrindedIceShop.Models.Commands
+namespace GrindedIceShop.Models.Commands.Actions
 {
     public class PriceAction : Enumeration
     {
