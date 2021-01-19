@@ -11,6 +11,7 @@ namespace GrindedIceShop.Models.Staffs
         public decimal Salary { get; set; }
 
         public override string ToString() => $"Name: {Name}, Salary: {Salary}";
+
         public abstract string Attendance(DateTime presenceTime);
 
         public StaffBase ShallowCopy() => (StaffBase)this.MemberwiseClone();
