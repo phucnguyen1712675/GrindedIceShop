@@ -6,6 +6,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 
+
 namespace GrindedIceShop.Models.Bills
 {
     [AddINotifyPropertyChangedInterface]
@@ -58,6 +59,5 @@ namespace GrindedIceShop.Models.Bills
         /*public void CheckOutBill(string stringPaymentMethod) { 
          *  //TODO
          * }*/
-
     }
 }

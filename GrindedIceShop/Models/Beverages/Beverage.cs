@@ -28,7 +28,6 @@ namespace GrindedIceShop.Models.Beverages
             return result;
         }
 
-
         public void IncreasePrice(decimal amount)
         {
             Price += amount;
