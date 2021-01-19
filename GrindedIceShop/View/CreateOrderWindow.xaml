@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:GrindedIceShop.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
@@ -20,6 +19,11 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/ResourceDictionary/MainWindowResourceDictionary.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <!--  throw in some extra colour for our floating action button  -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Green.Named.Primary.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="listViewItemContainerStyle" TargetType="{x:Type ListViewItem}">
@@ -220,7 +224,7 @@
 
         <Grid Grid.Row="2" Margin="0,10">
             <!--  TODO add command here  -->
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <!--<StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                 <Button
                     x:Name="AddCustomerToOrderButton"
                     Width="120"
@@ -231,7 +235,28 @@
                     Width="120"
                     Margin="10,0"
                     Content="Add Staff" />
-            </StackPanel>
+            </StackPanel>-->
+            <md:PopupBox
+                Margin="20"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
+                <StackPanel>
+                    <Button
+                        Command="{Binding AddNewBillCommand}"
+                        Content="{md:PackIcon Kind=TextboxPlus,
+                                              Size=20}"
+                        ToolTip="Thêm hóa đơn mới">
+                        <!--  mix up the colours by bringing in a named palette (see merged dictionaries at top)  -->
+                        <Button.Background>
+                            <SolidColorBrush Color="{StaticResource GreenPrimary500}" />
+                        </Button.Background>
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{StaticResource GreenPrimary500Foreground}" />
+                        </Button.Foreground>
+                    </Button>
+                </StackPanel>
+            </md:PopupBox>
 
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button

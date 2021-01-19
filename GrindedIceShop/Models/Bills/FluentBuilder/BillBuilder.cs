@@ -2,11 +2,13 @@
 {
     public abstract class BillBuilder
     {
-        private static int _nextId;
+        //private static int _nextId;
 
         protected readonly Bill Bill;
 
-        static BillBuilder()
+        protected BillBuilder() => Bill = new Bill();
+
+        /*static BillBuilder()
         {
             _nextId = 0;
         }
@@ -17,7 +19,7 @@
             {
                 BillId = _nextId++
             };
-        }
+        }*/
 
         public Bill Build() => Bill;
     }
