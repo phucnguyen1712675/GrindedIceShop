@@ -20,6 +20,8 @@ namespace GrindedIceShop.ViewModel.Controls
         public bool IsChecked { get; set; }
         public ICommand DarkModeCommand { get; }
 
+
+
         public MainWindowViewModel()
         {
             Instance = this;
@@ -40,6 +42,8 @@ namespace GrindedIceShop.ViewModel.Controls
             SelectedNavigationItem = NavigationItems[0];*/
         }
 
+
+        #region Theme
         private void ExecuteDarkModeModify()
         {
             ModifyTheme(this.IsChecked);
@@ -61,5 +65,6 @@ namespace GrindedIceShop.ViewModel.Controls
             config.AppSettings.Settings["IsDarkMode"].Value = isDarkTheme.ToString();
             config.Save(ConfigurationSaveMode.Minimal);
         }
+        #endregion
     }
 }

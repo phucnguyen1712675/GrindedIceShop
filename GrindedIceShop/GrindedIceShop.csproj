@@ -129,6 +129,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CreateOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Controls\ContentControls\HomeScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,8 +149,41 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Bases\MainMenuItem.cs" />
+    <Compile Include="Models\Bases\MenuItem.cs" />
     <Compile Include="Models\Beverages\Beverage.cs" />
+    <Compile Include="Models\Beverages\BeverageTypes\BeverageTypeManager.cs" />
+    <Compile Include="Models\Beverages\BeverageTypes\ColdBeverage.cs" />
+    <Compile Include="Models\Beverages\BeverageTypes\BeverageType.cs" />
+    <Compile Include="Models\Beverages\BeverageTypes\HotBeverage.cs" />
+    <Compile Include="Models\Beverages\SubBeverages\MilkTea.cs" />
+    <Compile Include="Models\Beverages\SubBeverages\Tea.cs" />
     <Compile Include="Models\Bills\Bill.cs" />
+    <Compile Include="Models\Customers\Customer.cs" />
+    <Compile Include="Models\GrindedIces\GrindedIce.cs" />
+    <Compile Include="Models\GrindedIces\SubGrindedIces\ChocolateGrindedIce.cs" />
+    <Compile Include="Models\GrindedIces\SubGrindedIces\MiloGrindedIce.cs" />
+    <Compile Include="Models\GrindedIces\SubGrindedIces\TaroGrindedIce.cs" />
+    <Compile Include="Models\ShopHome\BeverageMenuItemManager.cs" />
+    <Compile Include="Models\ShopHome\GrindedIceMenuItemManager.cs" />
+    <Compile Include="Models\ShopHome\Shop.cs" />
+    <Compile Include="Models\SizeManagers\BeverageSizeManager.cs" />
+    <Compile Include="Models\SizeManagers\GrindedIceSizeManager.cs" />
+    <Compile Include="Models\SizeManagers\SizeManager.cs" />
+    <Compile Include="Models\Staffs\StaffBase.cs" />
+    <Compile Include="Models\SupportCompareStrings\MyCompareString.cs" />
+    <Compile Include="Models\Toppings\SubToppings\BlackBubble.cs" />
+    <Compile Include="Models\Toppings\SubToppings\Cheese.cs" />
+    <Compile Include="Models\Toppings\SubToppings\EggPudding.cs" />
+    <Compile Include="Models\Toppings\SubToppings\Flan.cs" />
+    <Compile Include="Models\Toppings\SubToppings\GoldenPearlBubble.cs" />
+    <Compile Include="Models\Toppings\SubToppings\MatchaPudding.cs" />
+    <Compile Include="Models\Toppings\SubToppings\Strawberry.cs" />
+    <Compile Include="Models\Toppings\SubToppings\WhiteBubble.cs" />
+    <Compile Include="Models\Toppings\Topping.cs" />
+    <Compile Include="Models\Toppings\ToppingDecorator.cs" />
+    <Compile Include="Models\Toppings\ToppingManager.cs" />
+    <Compile Include="Models\Beverages\Beverage.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillBuilder.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillBuilderDirector.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillCashierBuilder.cs" />
@@ -168,7 +205,6 @@
     <Compile Include="Models\Customers\FacetedBuilder\CustomerAddressBuilder.cs" />
     <Compile Include="Models\Customers\FacetedBuilder\CustomerBuilderFacade.cs" />
     <Compile Include="Models\Customers\FacetedBuilder\CustomerInfoBuilder.cs" />
-    <Compile Include="Models\Customers\Customer.cs" />
     <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\FullTimeStaffFactory.cs" />
     <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\PartTimeStaffFactory.cs" />
     <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\StaffFactory.cs" />
@@ -176,13 +212,16 @@
     <Compile Include="Models\Staffs\FullTimeStaff.cs" />
     <Compile Include="Models\Staffs\PartTimeStaff.cs" />
     <Compile Include="Models\Staffs\Staff.cs" />
-    <Compile Include="Models\Staffs\StaffBase.cs" />
     <Compile Include="ViewModel\Controls\ContentControls\HomeScreenViewModel.cs" />
     <Compile Include="ViewModel\Controls\Dialogs\Bills\BillDetailViewModel.cs" />
     <Compile Include="ViewModel\Controls\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\CreateOrderViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\CreateOrderWindow.xaml.cs">
+      <DependentUpon>CreateOrderWindow.xaml</DependentUpon>
+     </Compile>
     <Compile Include="View\Controls\ContentControls\HomeScreen.xaml.cs">
       <DependentUpon>HomeScreen.xaml</DependentUpon>
     </Compile>
