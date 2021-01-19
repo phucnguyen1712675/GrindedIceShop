@@ -27,21 +27,5 @@ namespace GrindedIceShop.Models.Beverages
             result += "(" + BeverageType.Prepare(Size) + ") ";
             return result;
         }
-
-        public void IncreasePrice(decimal amount)
-        {
-            Price += amount;
-            //Console.WriteLine($"The price for the {Name} has been increased by {amount}$.");
-        }
-        public bool DecreasePrice(decimal amount)
-        {
-            if (amount < Price)
-            {
-                Price -= amount;
-                //Console.WriteLine($"The price for the {Name} has been decreased by {amount}$.");
-                return true;
-            }
-            return false;
-        }
     }
 }

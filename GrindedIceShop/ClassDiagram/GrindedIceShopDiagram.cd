@@ -63,13 +63,6 @@
       <FileName>Models\Bills\FluentBuilder\BillStatusBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GrindedIceShop.Models.Bills.Strategy.BillStatus" Collapsed="true">
-    <Position X="9.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>Models\Bills\Strategy\BillStatus.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="GrindedIceShop.Models.Staffs.FactoryMethodRefactoringTechnique.FullTimeStaffFactory" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="21" Y="3" Width="1.5" />
     <TypeIdentifier>
@@ -122,7 +115,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GrindedIceShop.Models.Payments.Factory.PaymentFactory" Collapsed="true">
-    <Position X="8" Y="4.25" Width="1.5" />
+    <Position X="11.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAAAAAAACAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Payments\Factory\PaymentFactory.cs</FileName>
@@ -145,7 +138,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="GrindedIceShop.Models.Payments.Strategy.ZaloPay" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.75" Y="4.25" Width="1.5" />
+    <Position X="11.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Payments\Strategy\ZaloPay.cs</FileName>
@@ -229,6 +222,43 @@
       <FileName>Models\Customers\FacetedBuilder\CustomerInfoBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="GrindedIceShop.Models.Commands.Actions.PointAction" Collapsed="true">
+    <Position X="9" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Commands\Actions\PointAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GrindedIceShop.Models.Commands.Actions.PriceAction" Collapsed="true">
+    <Position X="13" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Commands\Actions\PriceAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GrindedIceShop.Models.Commands.Command.CustomerCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAIAQAAABAABAAEAA=</HashCode>
+      <FileName>Models\Commands\Command\CustomerCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GrindedIceShop.Models.Commands.Command.MenuItemCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAIAAACABAABAAEAA=</HashCode>
+      <FileName>Models\Commands\Command\MenuItemCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GrindedIceShop.Models.Commands.Execution.ModifyPrice" Collapsed="true">
+    <Position X="13" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAQAIAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\Commands\Execution\ModifyPrice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="GrindedIceShop.Models.Staffs.FactoryMethodRefactoringTechnique.IStaffFactory" Collapsed="true">
     <Position X="21" Y="5.25" Width="1.5" />
     <TypeIdentifier>
@@ -237,7 +267,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="GrindedIceShop.Models.Payments.IPayment" Collapsed="true">
-    <Position X="8" Y="5.5" Width="1.5" />
+    <Position X="9.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Payments\IPayment.cs</FileName>
@@ -250,10 +280,17 @@
       <FileName>Models\Data\ISingletonContainer.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Interface Name="GrindedIceShop.Models.Commands.IMyCommand" Collapsed="true">
+    <Position X="9" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAA=</HashCode>
+      <FileName>Models\Commands\IMyCommand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Enum Name="GrindedIceShop.Models.Staffs.StaffTypes" Collapsed="true">
     <Position X="21" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIACAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIACABAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Staffs\StaffTypes.cs</FileName>
     </TypeIdentifier>
   </Enum>

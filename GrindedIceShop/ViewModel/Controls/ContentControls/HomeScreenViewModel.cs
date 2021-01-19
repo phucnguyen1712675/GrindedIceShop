@@ -49,8 +49,6 @@ namespace GrindedIceShop.ViewModel.Controls.ContentControls
 
         private void LoadBills()
         {
-            /* var temp = BillDataContainer.Instance.GetAllBills();
-             this.Bills = temp.ToObservableCollection();*/
             this.Bills = BillDataContainer.Instance.GetUnfinishedBills().ToObservableCollection();
         }
 

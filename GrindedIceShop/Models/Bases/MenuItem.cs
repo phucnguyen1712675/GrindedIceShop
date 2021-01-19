@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GrindedIceShop.Models.Toppings;
+﻿using GrindedIceShop.Models.Toppings;
 using PropertyChanged;
 
 namespace GrindedIceShop.Models.Bases
@@ -15,10 +10,11 @@ namespace GrindedIceShop.Models.Bases
         public string Name { get; set; }
 
         public decimal Price { get; set; }
-       
+
         public virtual decimal GetPrice() { return 0; }
 
-        public virtual string Prepare() {
+        public virtual string Prepare()
+        {
             return Name;
         }
 
@@ -28,5 +24,21 @@ namespace GrindedIceShop.Models.Bases
         }
 
         public MenuItem Clone() { return this; }
+
+        public void IncreasePrice(decimal amount)
+        {
+            Price += amount;
+            //Console.WriteLine($"The price for the {Name} has been increased by {amount}$.");
+        }
+        public bool DecreasePrice(decimal amount)
+        {
+            if (amount < Price)
+            {
+                Price -= amount;
+                //Console.WriteLine($"The price for the {Name} has been decreased by {amount}$.");
+                return true;
+            }
+            return false;
+        }
     }
 }
