@@ -221,7 +221,7 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\CreateOrderWindow.xaml.cs">
       <DependentUpon>CreateOrderWindow.xaml</DependentUpon>
-     </Compile>
+    </Compile>
     <Compile Include="View\Controls\ContentControls\HomeScreen.xaml.cs">
       <DependentUpon>HomeScreen.xaml</DependentUpon>
     </Compile>
