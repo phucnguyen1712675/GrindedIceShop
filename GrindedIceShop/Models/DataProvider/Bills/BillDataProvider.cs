@@ -20,6 +20,7 @@ namespace GrindedIceShop.Models.DataProvider.Bills
                 .OfCustomer(1)
                 .PaidByPayment(new Momo())
                 .WithStatus(BillStatus.UnFinished)
+                .WithMenuItems(null)
                 .Build(),
                 BillBuilderDirector
                 .NewBill
@@ -29,6 +30,7 @@ namespace GrindedIceShop.Models.DataProvider.Bills
                 .OfCustomer(2)
                 .PaidByPayment(new ZaloPay())
                 .WithStatus(BillStatus.UnFinished)
+                .WithMenuItems(null)
                 .Build(),
                 BillBuilderDirector
                 .NewBill
@@ -38,6 +40,7 @@ namespace GrindedIceShop.Models.DataProvider.Bills
                 .OfCustomer(3)
                 .PaidByPayment(new Cash())
                 .WithStatus(BillStatus.UnFinished)
+                .WithMenuItems(null)
                 .Build()
             };
 

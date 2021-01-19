@@ -39,7 +39,7 @@ namespace GrindedIceShop.Models.ShopHome
         {
             if (Bills.ContainsKey(id))
             {
-                Bills[id].Notify(id);
+                Bills[id].Notify();
                 RemoveBill(id);
             }
         }
