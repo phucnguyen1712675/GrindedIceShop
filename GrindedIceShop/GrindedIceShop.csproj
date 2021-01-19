@@ -250,7 +250,6 @@
     <Compile Include="Models\Staffs\FullTimeStaff.cs" />
     <Compile Include="Models\Staffs\PartTimeStaff.cs" />
     <Compile Include="Models\Staffs\FactoryMethodRefactoringTechnique\StaffFactory.cs" />
-    <Compile Include="Models\Staffs\StaffBase.cs" />
     <Compile Include="Util\Extensions.cs" />
     <Compile Include="Util\ListOfTypes.cs" />
     <Compile Include="ViewModel\Controls\ContentControls\HomeScreenViewModel.cs" />
@@ -301,6 +300,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram\GrindedIceShopDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
