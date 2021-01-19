@@ -13,13 +13,5 @@ namespace GrindedIceShop.Models.Staffs
         public override string ToString() => $"Name: {Name}, Salary: {Salary}";
 
         public abstract string Attendance(DateTime presenceTime);
-
-        //TODO
-        public StaffBase(string test)
-        {
-            StaffId = 1;
-            Name = "Johnny Deep";
-            Salary = 1000000;
-        }
     }
 }
