@@ -39,22 +39,18 @@
                             <Button
                                 Background="{DynamicResource PrimaryHueMidBrush}"
                                 Command="{Binding DataContext.NotifyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                CommandParameter="{Binding BillId}"
                                 Content="{md:PackIcon Kind=BellRing,
                                                       Size=20}"
                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
                                 ToolTip="Notify customer" />
-                            <!--<Button
-                                Background="{DynamicResource SecondaryHueMidBrush}"
-                                Command="{Binding DataContext.AddNewBillCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
-                                Content="{md:PackIcon Kind=MapMarker,
-                                                      Size=20}"
-                                Foreground="{DynamicResource SecondaryHueMidForegroundBrush}"
-                                ToolTip="Thêm chi phí tại các địa điểm " />-->
                             <Button
                                 Command="{Binding DataContext.CheckoutCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                CommandParameter="{Binding BillId}"
                                 Content="{md:PackIcon Kind=CartCheck,
                                                       Size=20}"
                                 ToolTip="Checkout">
+
                                 <!--  mix up the colours by bringing in a named palette (see merged dictionaries at top)  -->
                                 <Button.Background>
                                     <SolidColorBrush Color="{StaticResource GreenPrimary500}" />
@@ -63,6 +59,15 @@
                                     <SolidColorBrush Color="{StaticResource GreenPrimary500Foreground}" />
                                 </Button.Foreground>
                             </Button>
+
+                            <Button
+                                Background="#FFD32F2F"
+                                Command="{Binding DataContext.PrepareCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                CommandParameter="{Binding BillId}"
+                                Content="{md:PackIcon Kind=ChefHat,
+                                                      Size=20}"
+                                Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                                ToolTip="Prepare order" />
                         </StackPanel>
                     </md:PopupBox>
                 </Grid>

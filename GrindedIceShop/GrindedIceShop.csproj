@@ -75,6 +75,18 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Namotion.Reflection, Version=1.0.15.0, Culture=neutral, PublicKeyToken=c2f9c3bdfae56102, processorArchitecture=MSIL">
+      <HintPath>..\packages\Namotion.Reflection.1.0.15\lib\net45\Namotion.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NJsonSchema, Version=10.3.3.0, Culture=neutral, PublicKeyToken=c2f9c3bdfae56102, processorArchitecture=MSIL">
+      <HintPath>..\packages\NJsonSchema.10.3.3\lib\net45\NJsonSchema.dll</HintPath>
+    </Reference>
+    <Reference Include="NSwag.Core, Version=13.10.1.0, Culture=neutral, PublicKeyToken=c2d88086e098d109, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSwag.Core.13.10.1\lib\net45\NSwag.Core.dll</HintPath>
+    </Reference>
     <Reference Include="PropertyChanged, Version=3.3.1.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
       <HintPath>..\packages\PropertyChanged.Fody.3.3.1\lib\net40\PropertyChanged.dll</HintPath>
     </Reference>
@@ -88,6 +100,7 @@
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
@@ -173,6 +186,7 @@
     <Compile Include="Models\Beverages\SubBeverages\MilkTea.cs" />
     <Compile Include="Models\Beverages\SubBeverages\Tea.cs" />
     <Compile Include="Models\Bills\Bill.cs" />
+    <Compile Include="Models\Bills\FluentBuilder\BillMenuItemsBuilder.cs" />
     <Compile Include="Models\Customers\Customer.cs" />
     <Compile Include="Models\GrindedIces\GrindedIce.cs" />
     <Compile Include="Models\GrindedIces\SubGrindedIces\ChocolateGrindedIce.cs" />
@@ -184,7 +198,6 @@
     <Compile Include="Models\SizeManagers\BeverageSizeManager.cs" />
     <Compile Include="Models\SizeManagers\GrindedIceSizeManager.cs" />
     <Compile Include="Models\SizeManagers\SizeManager.cs" />
-    <Compile Include="Models\Staffs\StaffBase.cs" />
     <Compile Include="Models\SupportCompareStrings\MyCompareString.cs" />
     <Compile Include="Models\Toppings\SubToppings\BlackBubble.cs" />
     <Compile Include="Models\Toppings\SubToppings\Cheese.cs" />
@@ -197,7 +210,6 @@
     <Compile Include="Models\Toppings\Topping.cs" />
     <Compile Include="Models\Toppings\ToppingDecorator.cs" />
     <Compile Include="Models\Toppings\ToppingManager.cs" />
-    <Compile Include="Models\Beverages\Beverage.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillBuilder.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillBuilderDirector.cs" />
     <Compile Include="Models\Bills\FluentBuilder\BillCashierBuilder.cs" />

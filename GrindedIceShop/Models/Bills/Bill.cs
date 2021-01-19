@@ -31,9 +31,9 @@ namespace GrindedIceShop.Models.Bills
             BillId = id;
         }
 
-        public void Notify(int id)
+        public void Notify()
         {
-            MessageBox.Show($"Customer: {Customer.Name}'s order_{id} is done !");
+            MessageBox.Show($"Customer: {Customer.Name}'s order_{BillId} is done !");
         }
 
         public void AddItem(MenuItem item)
@@ -52,13 +52,21 @@ namespace GrindedIceShop.Models.Bills
             {
                 this.Status = BillStatus.Finished;
             }
+            string result ="CheckOut :\n"  +  ToString();
+            MessageBox.Show(result);
         }
 
         public void PrepareOrders()
         {
             string result = "";
-            foreach (var item in ItemsOrder)
-                result += item.Prepare() + "\n";
+            int i = 1;
+            foreach (MenuItem item in ItemsOrder)
+            {
+                result += $"item_{i} : {item.GetPrice()} vnd\n";
+                string resultItem = $"Prepare: {item.Prepare()}\n";
+                result += resultItem;
+                i++;
+            }
             MessageBox.Show(result);
         }
 
@@ -69,9 +77,5 @@ namespace GrindedIceShop.Models.Bills
                 total += item.GetPrice();
             return total;
         }
-
-        /*public void CheckOutBill(string stringPaymentMethod) { 
-         *  //TODO
-         * }*/
     }
 }
